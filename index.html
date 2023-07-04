@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Organización de citas médicas</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #f8f8f8;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			margin: 0 auto;
+			max-width: 800px;
+			padding: 20px;
+		}
+
+		h1, h2 {
+			text-align: center;
+		}
+
+		form {
+			background-color: white;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin: 20px 0;
+			padding: 20px;
+		}
+
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		input, select {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			display: block;
+			font-size: 16px;
+			margin-bottom: 20px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		button[type="submit"] {
+			background-color: #4CAF50;
+			border: none;
+			border-radius: 3px;
+			color: white;
+			cursor: pointer;
+			font-size: 16px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+
+		.alert {
+			background-color: #f44336;
+			border-radius: 5px;
+			color: white;
+			margin-bottom: 20px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		table {
+			border-collapse: collapse;
+			margin: 20px 0;
+			width: 100%;
+		}
+
+		table th, table td {
+			border: 1px solid #ccc;
+			padding: 10px;
+			text-align: center;
+		}
+
+		table th {
+			background-color: #f2f2f2;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		table td {
+			font-size: 16px;
+		}
+
+		.map-container {
+			height: 400px;
+			margin-bottom: 20px;
+			position: relative;
+			width: 100%;
+		}
+
+		.map-container iframe {
+			border: 0;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Organización de citas médicas</h1>
+		<h2>Nueva cita</h2>
+		<form id="cita-form">
+			<label for="fecha">Fecha:</label>
+			<input type="date" id="fecha" name="fecha" required>
+			<label for="hora">Hora:</label>
+			<input type="time" id="hora" name="hora" required>
+			<label for="tipo">Tipo de estudio:</label>
+		<select id="tipo" name="tipo" required>
+			<option value="">Seleccionar</option>
+			<option value="Consulta-Perinatal">Consulta Perinatal</option>
+			<option value="Consulta-Ginecologica">Consulta Ginecológica</option>
+			<option value="Consulta-Prenatal">Consulta Prenatal</option>
+			<option value="Eco-Perinatal">Eco Perinatal</option>
+			<option value="Eco-Obstetrico">Eco Obstétrico</option>
+		</select>
+			<button type="submit">Agendar cita</button>
+		</form>
+		<div id="alert"></div>
+		<h2>Lista de citas</h2>
+		<button id="borrar-citas">Borrar todas las citas</button>
+		<table id="citas-table">
+			<thead>
+				<tr>
+					<th>Fecha</th>
+					<th>Hora</th>
+					<th>Tipo de estudio</th>
+			<tbody>
+			</table>
+		<div class="map-container">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.055474072581!2d-68.00968412606306!3d10.176146469981168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e80678b8a08fb35%3A0x5a4f5942d77c5c87!2sPerinat%C3%B3logo%20Dra.%20Aura%20R%C3%ADos!5e0!3m2!1ses-419!2sve!4v1688415723534!5m2!1ses-419!2sve" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		</div>
+	</div>
+	<script>
+        const agendarCitaBtn = document.querySelector('button[type="submit"]');
+        agendarCitaBtn.addEventListener('click', () => {
+            agendarCitaBtn.style.backgroundColor = 'blue';
+        });
+	</script>
+</body>
+</html>
